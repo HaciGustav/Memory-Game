@@ -66,9 +66,9 @@ const cardsArray = [
     },
 ];
 
-const createCard = (source) => {
+const createCard = (source, id) => {
     const card = $('<div></div>');
-    card.html(`<div class="flip-box">
+    card.html(`<div id="${id}" class="flip-box">
         <div class="flip-box-inner">
           <div class="flip-box-front">
             <img src="${source}" alt="">
@@ -81,17 +81,40 @@ const createCard = (source) => {
     $('.cards').prepend(card);
 };
 
-// createCard();
+//clicked cards will be stored in this array
+const clickedCards = [];
+
 cardsArray
     .sort(() => 0.5 - Math.random())
-    .forEach((item) => {
-        createCard(item.img);
+    .forEach((item, i) => {
+        createCard(item.img, i);
     });
 
 $('.cards').click((e) => {
-    console.log($(e.target.closest('.flip-box')).eq(0));
+    // console.log($(e.target.closest('.flip-box')).attr('id'));
+
+    const card = $(e.target.closest('.flip-box'));
+    //push the ids into array
+    clickedCards.push(card.attr('id'));
+
+    console.log(clickedCards);
+    //flip card
+    card.find('.flip-box-inner').css({ transform: 'rotateY(0deg)' });
+    //match control
+    if (clickedCards.length == 2) {
+        checkMatch(card);
+
+        clickedCards.length = 0;
+    }
 });
 
+const checkMatch = (trgt) => {
+    if (clickedCards[0] === clickedCards[1]) {
+        console.log(clickedCards);
+    } else {
+        clickedCards.length = 0;
+    }
+};
 //!!!!!----------BACKUP-------------!!!!!!!//
 
 /* const createCard = (source) => {
