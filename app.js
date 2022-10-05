@@ -1,3 +1,4 @@
+$('.adv').click((e) => e.target.remove());
 const cardsArray = [
     {
         name: 'myCode',
@@ -130,7 +131,7 @@ const checkMatch = (card) => {
         clickedCards.length = 0;
         setTimeout(() => {
             $('.flip-box-inner').css({ transform: 'rotateY(180deg)' });
-        }, 1000);
+        }, 750);
     }
 };
 
