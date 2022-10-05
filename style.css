@@ -32,7 +32,7 @@ body{
 }
 
 .container{
-    width: 60%;
+    width: 80%;
     /* height: 100%; */
     padding: 2rem;
     margin: auto;
@@ -41,7 +41,7 @@ body{
     align-items: center;
     position: relative;
   
-background: linear-gradient(90deg, rgba(131, 58, 180, 0) 0%, rgba(253,29,29,1) 70%, rgba(252, 176, 69, 0) 100%);
+background: linear-gradient(90deg, rgba(131, 58, 180, 0) 0%, rgba(253, 29, 29, 0.5) 50%, rgba(252, 176, 69, 0) 100%);
 }
 .container .cards{
     display: grid;
@@ -60,8 +60,8 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 0) 0%, rgba(253,29,29,1) 7
 /* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-box {
     background-color: transparent;
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     /* border: 2px solid rgb(133, 1, 1); */
     border-radius: 10px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
@@ -124,4 +124,26 @@ background: linear-gradient(90deg, rgba(131, 58, 180, 0) 0%, rgba(253,29,29,1) 7
         height: 100%;
     }
     
+  }
+
+  @media (min-width: 275px) and (max-width: 390px) {
+    .container{width: 100%;}
+    .flip-box {
+        width: 5rem;
+        height: 5rem;}
+        .flip-box-back {font-size: 3rem;}
+  }
+  @media (min-width: 390px) and (max-width: 540px) {
+    .container{width: 100%;}
+    .flip-box {
+        width: 5rem;
+        height: 5rem;}
+        .flip-box-back {font-size: 3rem;}
+  }
+  @media (min-width: 540px) and (max-width: 720px) {
+    .container{width: 100%;}
+    .flip-box {
+        width: 7rem;
+        height: 7rem;}
+        .flip-box-back {font-size: 3rem;}
   }
