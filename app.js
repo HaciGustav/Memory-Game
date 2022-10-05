@@ -20,7 +20,7 @@ const cardsArray = [
         img: './img/usersVSprogrammers.jpg',
     },
     {
-        name: 'ctrl+c',
+        name: 'ctrlC',
         img: './img/ctrl+c.jpg',
     },
     {
@@ -53,7 +53,7 @@ const cardsArray = [
         img: './img/usersVSprogrammers.jpg',
     },
     {
-        name: 'ctrl+c',
+        name: 'ctrlC',
         img: './img/ctrl+c.jpg',
     },
     {
@@ -66,9 +66,9 @@ const cardsArray = [
     },
 ];
 
-const createCard = (source, id) => {
+const createCard = (source, id, name) => {
     const card = $('<div></div>');
-    card.html(`<div id="${id}" class="flip-box">
+    card.html(`<div id="${id}" data-name = "${name}" class="flip-box">
         <div class="flip-box-inner">
           <div class="flip-box-front">
             <img src="${source}" alt="">
@@ -87,7 +87,7 @@ const clickedCards = [];
 cardsArray
     .sort(() => 0.5 - Math.random())
     .forEach((item, i) => {
-        createCard(item.img, i);
+        createCard(item.img, i, item.name);
     });
 
 $('.cards').click((e) => {
@@ -95,7 +95,7 @@ $('.cards').click((e) => {
 
     const card = $(e.target.closest('.flip-box'));
     //push the ids into array
-    clickedCards.push(card.attr('id'));
+    clickedCards.push(card.attr('data-name'));
 
     console.log(clickedCards);
     //flip card
@@ -108,13 +108,29 @@ $('.cards').click((e) => {
     }
 });
 
-const checkMatch = (trgt) => {
+const checkMatch = (card) => {
     if (clickedCards[0] === clickedCards[1]) {
         console.log(clickedCards);
+        console.log($(`[data-name=${card.attr('data-name')}]`));
+
+        /*  $('.container')
+            .find(`${card.attr('data-name')}`)
+            .css({ visibility: 'hidden' }); */
+
+        setTimeout(() => {
+            $(`[data-name=${card.attr('data-name')}]`).css({
+                visibility: 'hidden',
+            });
+        }, 750);
     } else {
         clickedCards.length = 0;
+        setTimeout(() => {
+            $('.flip-box-inner').css({ transform: 'rotateY(180deg)' });
+        }, 750);
     }
 };
+
+// console.log($(`#${card.attr('data-name')}`));
 //!!!!!----------BACKUP-------------!!!!!!!//
 
 /* const createCard = (source) => {
