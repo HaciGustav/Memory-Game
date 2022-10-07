@@ -4,7 +4,7 @@ Simple memory game made with JQuery
 
 ## Authors
 
-- [MehmetFK](https://www.github.com/octokatherine)
+- [MehmetFK](https://github.com/HaciGustav)
 
 
 ## Styling
