@@ -28,4 +28,5 @@ Simple memory game made with JQuery
 
 ![App Screenshot](https://github.com/HaciGustav/Memory-Game/blob/main/img/demo1.png)
 ![App Screenshot](https://github.com/HaciGustav/Memory-Game/blob/main/img/demo2.png)
+### // ------------- LAST SCENE AFTER WINNING -----------//
 ![App Screenshot](https://github.com/HaciGustav/Memory-Game/blob/main/img/demo-win.png)
